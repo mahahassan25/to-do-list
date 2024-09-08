@@ -1,7 +1,7 @@
 <template>
      <div class="flex flex-col gap-3 ms-3">
         <h2 class="font-bold text-xl capitalize text-red-600">tasks</h2>
-        <div v-for="(tsk,i) in arr" :key="i" class="rounded-xl border-2 border-gray-200 w-3/4 p-2 flex ">
+        <div v-for="(tsk,i) in tasks" :key="i" class="rounded-xl border-2 border-gray-200 w-3/4 p-2 flex ">
             <div class="w-full">
               <p>{{ tsk.date }}</p>
               <p class="font-bold">{{ tsk.title }}</p>
@@ -21,8 +21,13 @@
     name:'ShowTasks',
     data(){
         return{
-            arr:[],
+          
         }
+    },
+    computed:{
+      tasks(){
+        return this.$store.state.tasks;
+      }
     },
     methods:{
         deleteTask(id){
@@ -47,10 +52,11 @@
         }
     },
     mounted(){
-        fetch('http://localhost:3000/tasks')
-        .then(res=>res.json())
-        .then(data=>this.arr=data)
-        .catch(err=>console.log(err));
-    }
+      console.log("ي يارب");
+     console.log(this.tasks);
+   
+      this.$store.dispatch("doGetTasks");
+    },
+    
   }
 </script>

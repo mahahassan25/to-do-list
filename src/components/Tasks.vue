@@ -27,22 +27,20 @@ export default{
            
         }
     },
+   
     methods:{
        addTask(){
-         
           let obj={
             title:this.$refs.titleRef.value,
-            discription:this.$refs.discRef.value,
-            date:this.$refs.dateRef.value,
-            fav:false
-           }
-           fetch('http://localhost:3000/tasks',{
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(obj)
-        }).then(()=>console.log("added"))
-       
-       
+           discription :this.$refs.discRef.value,
+           date:this.$refs.dateRef.value,
+           fav:false,
+          }
+          
+      console.log("mahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      console.log(obj);
+       this.$store.dispatch('addTask',obj);
+      
         }
     }
    

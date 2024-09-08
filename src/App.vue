@@ -1,14 +1,11 @@
 
 
-<template>
-  <div class="bg-cyan-950 text-white flex flex-col h-screen ">
+<template >
+  <div class="bg-cyan-950 text-white flex flex-col ">
     <h1 class="font-bold text-center text-xl mt-3">TO DO LIST</h1>
   <Tasks></Tasks>
   <ShowTasks></ShowTasks>
   <FavTask></FavTask>
-   
-   
-   
   </div>
 </template>
 
